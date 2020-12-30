@@ -1,3 +1,8 @@
+const { getIpAddress } = require('./utils.js')
+const ipAddress = getIpAddress()
+
+const PORT = 8010
+
 const express = require("express")
 const bodyParser = require("body-parser")
 const fs = require("fs")
@@ -6,8 +11,8 @@ const app = express()
 
 
 app.get('/' ,(request,response) => {
-    console.log('imageStorage ...')
-    response.send('imageStorage ...');
+    console.log(`ImageStorage: REST API on IP address ${ipAddress} - GET / ...`)
+    response.send(`ImageStorage: REST API on IP address ${ipAddress} - GET /`)
   })
 
 app.use('/images', express.static('images'))
@@ -32,6 +37,6 @@ app.post("/image", /*authenticate,*/ (request, response) => {
    })
  })
 
-app.listen(8010, () => {
-    console.log('Imagestorage listening on port 8010!')
+app.listen(PORT, () => {
+    console.log(`ImageStorage, running on IP address ${ipAddress}, listening on port ${PORT}.`)
 })

@@ -1,7 +1,7 @@
 {
   "name": "imagestorage",
   "version": "1.0.0",
-  "description": "",
+  "description": "Generic image store.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
