@@ -10,6 +10,7 @@ const dataBaseConnectionInfo = {
     password: PASSWORD,
     database: DATABASE
 }
-console.log(`dataBaseConnectionInfo = ${dataBaseConnectionInfo}`)
+console.log('dataBaseConnectionInfo:')
+console.log(dataBaseConnectionInfo)
 
 module.exports = {dataBaseConnectionInfo}
