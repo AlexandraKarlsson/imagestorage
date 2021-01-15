@@ -14,6 +14,8 @@ FROM node:12
 
 RUN mkdir -p /home/node/app/images
 
+RUN mkdir -p /home/node/app/backup
+
 RUN mkdir -p /home/node/app/node_modules 
 
 RUN chown -R node:node /home/node/app
