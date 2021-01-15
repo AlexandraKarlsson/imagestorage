@@ -10,4 +10,4 @@ echo $backup_date
 rm images/*
 
 # Copy all images from selected backup
-cp backup/$backup_date images/
+cp backup/$backup_date/* images/

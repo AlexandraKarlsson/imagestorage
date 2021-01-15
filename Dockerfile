@@ -4,8 +4,6 @@
 # > docker image ls
 # To run the imges type:
 # > docker container run -p 8010:8010 --rm alexandrakarlsson/imagestore
-# To tag the image for docker hub storage
-# > docker image tag imagestore:latest alexandrakarlsson/imagestore:latest
 # To push the image to docker hub
 # > docker login
 # > docker image push alexandrakarlsson/imagestore:latest
@@ -29,6 +27,7 @@ USER node
 RUN npm install
 
 COPY --chown=node:node ./*.js ./
+COPY --chown=node:node ./*.sh ./
 
 EXPOSE 8010
 
