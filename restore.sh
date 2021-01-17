@@ -1,5 +1,6 @@
 #!/bin/bash
 # e. g. ./restore.sh 20210101
+echo "Running restore.sh..."
 
 backup_date=$1
 # echo $backup_date

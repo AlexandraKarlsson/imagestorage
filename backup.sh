@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Running backup.sh..."
 
 # Get current date
 current_day=`date +%Y%m%d`
