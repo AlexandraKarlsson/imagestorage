@@ -1,10 +1,9 @@
 #!/bin/bash
 # e. g. ./restore.sh 20210101
-echo "Running restore.sh..."
 
 backup_date=$1
 # echo $backup_date
-backup_dir="backup/$backup_date/"
+backup_dir="backup/$backup_date"
 # echo $backup_dir
 
 echo "Restore all images from the backup directory $backup_dir."
@@ -21,5 +20,5 @@ then
     cp -v $backup_dir/* images/
     echo "Images restored from backup."
 else
-    echo "Images not restored because $backup_dir does not exist." 
+    echo "Images not restored because $backup_dir does not exist.---" 
 fi
