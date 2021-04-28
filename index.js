@@ -5,6 +5,7 @@ const PORT = 8010
 
 const express = require("express")
 const fs = require("fs")
+const jimp = require('jimp')
 const { authenticate } = require("./authenticate")
 const app = express()
 
@@ -26,13 +27,24 @@ app.post("/image", bodyAsUrlencoded, /*authenticate,*/ (request, response) => {
   console.log(`POST /image name = ${name}`)
   var image = request.body.image
   var realFile = Buffer.from(image, "base64")
-  fs.writeFile(`images/${name}`, realFile, (error) => {
+  var outputFile = `images/${name}`;
+  var tempFile = `images/temp.jpg`;
+  fs.writeFile(tempFile, realFile, (error) => {
     if (error) {
       console.log(error)
       response.status(400).send()
     } else {
+      jimp.read(tempFile)
+      .then(image => {
+        image
+          .resize(1000,jimp.AUTO)
+          .quality(50)
+          .write(outputFile)
+          console.log(outputFile)
+          console.log('')
+      })
       console.log("OK")
-      response.send("OK")
+      response.status(201).send("Created")
     }
   })
 })
